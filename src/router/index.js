@@ -12,7 +12,8 @@ function Router () {
             key={item.path}
             exact={item.exact}
             path={item.path}
-            component={item.component} />
+            component={item.component}
+          />
         )}
       </Switch>
     </HashRouter>
