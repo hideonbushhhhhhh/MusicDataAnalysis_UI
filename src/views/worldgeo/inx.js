@@ -104,11 +104,11 @@ function List (){
             })
             graph.render()
             //graph.changeData({
-               // nodes: acs.nodes,
-               // edges: acs.edges.map(function (edge, i) {
-                  //  edge.id = 'edge' + edge.target.toString()+edge.source.toString()
-                //    return Object.assign({}, edge)
-              //  })
+            // nodes: acs.nodes,
+            // edges: acs.edges.map(function (edge, i) {
+            //  edge.id = 'edge' + edge.target.toString()+edge.source.toString()
+            //    return Object.assign({}, edge)
+            //  })
             //})
         })
         function refreshDragedNodePosition(e) {
@@ -127,7 +127,7 @@ function List (){
         graph.on('node:dblclick', ev => {
             const model=ev.item.get('model')
 
-                updateNodes(model)
+            updateNodes(model)
 
 
 
@@ -137,11 +137,6 @@ function List (){
 
 
     }, [stat.name,stat.option]);
-    function clearNodes() {
-        graph.clear();
-        acs.edges=[];
-        acs.nodes=[];
-    }
     function updateNodes(model){
         var url='http://localhost:8080'
         if (model.class===2){
@@ -188,21 +183,20 @@ function List (){
 
         })
     }
-        return (
-            <div>
-                <Select defaultValue="artist" style={{ width: 120 }} onChange={onSelect}>
-                    <Option value="song">song</Option>
-                    <Option value="album">album</Option>
-                    <Option value="artist">artist</Option>
-                    <Option value="other">other</Option>
-                </Select>
-                <Input  type="text" onKeyPress={onChange} defaultValue={stat.name}/>
-                <Button onClick={clearNodes} >清空节点</Button>
-                <div ref={ref}>
+    return (
+        <div>
+            <Select defaultValue="artist" style={{ width: 120 }} onChange={onSelect}>
+                <Option value="song">song</Option>
+                <Option value="album">album</Option>
+                <Option value="artist">artist</Option>
+                <Option value="other">other</Option>
+            </Select>
+            <Input  type="text" onKeyPress={onChange} defaultValue={stat.name}/>
+            <div ref={ref}>
 
-                </div>
             </div>
-        )
+        </div>
+    )
 
 
 }

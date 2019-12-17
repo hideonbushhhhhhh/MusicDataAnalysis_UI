@@ -109,7 +109,7 @@
     venn.js "~0.2.20"
     wolfy87-eventemitter "~5.1.0"
 
-"@antv/g2@~3.5.3":
+"@antv/g2@^3.5.11", "@antv/g2@~3.5.3":
   version "3.5.11"
   resolved "https://registry.yarnpkg.com/@antv/g2/-/g2-3.5.11.tgz#bd17f4911618671f115a249af410d3bb1c932e5e"
   integrity sha512-65TZ0ejdR+2gjOtRAU4TCRuIoOzizrreD5010wM628jylrUGOJ0v9aIA4XO8MtsUVI7O8/aAigsMn46VXA+Ocw==

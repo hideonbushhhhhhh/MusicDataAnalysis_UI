@@ -3,8 +3,10 @@ import Manage from '../views/Manage/index';
 import User from '../views/User';
 import Detail from '../views/User/detail';
 import List from '../views/List';
+import Hygs from '../views/Wordscloud/hygs/index'
 import Dashboard from '../views/Dashboard';
-import WordCloud from '../views/Wordscloud'
+import WordCloud from '../views/Wordscloud/index'
+import WorldGeo from  '../views/worldgeo/index'
 const menuConfig = [
   {
     path: '/manage/user',
@@ -32,6 +34,18 @@ const menuConfig = [
 
 
     ]
+  },
+  {
+    path: '/manage/hygs',
+    component: Hygs,
+    title: '华语歌手歌词统计',
+    icon: 'dashboard',
+  },
+  {
+    path: '/manage/worldgeo',
+    component: WorldGeo,
+    title: '歌手地区统计',
+    icon: 'dashboard',
   },
   {
     path: '/manage/dashboard',
