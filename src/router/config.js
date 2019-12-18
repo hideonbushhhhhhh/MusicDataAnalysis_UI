@@ -7,6 +7,7 @@ import Hygs from '../views/Wordscloud/hygs/index'
 import Dashboard from '../views/Dashboard';
 import WordCloud from '../views/Wordscloud/index'
 import WorldGeo from  '../views/worldgeo/index'
+import EDU from '../views/Dashboard/subpage/edu'
 const menuConfig = [
   {
     path: '/manage/user',
