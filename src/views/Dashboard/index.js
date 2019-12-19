@@ -1,72 +1,73 @@
 import React from 'react';
 import Bar from './subpage/bar';
-import Distributed from "./subpage/Distributed";
 import Mood from  './subpage/mood';
-import Edu from './subpage/edu'
-import Job from "./subpage/job";
-import Country from "./subpage/country";
-import Company from "./subpage/company";
-import Borndate from "./subpage/borndate";
 import { Row, Col } from 'antd';
+import Ktv from './subpage/ktv'
+import RanklistWords from './subpage/ranklist_words'
+import Ranklist_frequent_words from "./subpage/ranklist_frequent_words";
+import Scbd from "./subpage/scbd"
+import Hj from '../Singers/subpage/hj'
+import  Al from './subpage/Al'
 function Dashboard () {
   return (
     <div>
         <Row>
-
-            <Col span={18}>
-            <span>年新增歌曲数量曲线</span>
-            <Bar />
-        </Col>
+            <Col>
+                <span className="wxd">每年新增歌曲数量曲线</span>
+                <Bar />
+                <br/>
+                <br/>
+            </Col>
         </Row>
         <Row>
-            <Col span={8}>
-                <span>歌手歌曲数分布玫瑰图</span>
-                <Distributed/>
+            <Col>
+                <span className="wxd">每年新增专辑数量曲线</span>
+                <Al />
+                <br/>
+                <br/>
             </Col>
-
         </Row>
         <Row>
             <Col >
-                <span>抖音歌曲情绪分析</span>
+                <span className="wxd">抖音榜歌曲情绪分析</span>
                 <Mood/>
+                <br/>
+                <br/>
+            </Col>
+        </Row>
+        <Row>
+            <Col >
+                <span className="wxd">Ktv榜最多点击歌曲情感分析</span>
+                <Ktv/>
             </Col>
 
         </Row>
         <Row>
             <Col >
-                <span>歌手出生日期分析</span>
-                <Borndate/>
+                <span className="wxd">原创歌曲榜词性分析</span>
+                <br/><br/>
+                <RanklistWords/>
+                <br/><br/>
             </Col>
 
         </Row>
         <Row>
             <Col >
-                <span>歌手公司分析</span>
-                <Company/>
+                <span className="wxd">原创歌曲榜词频统计</span>
+                <br/><br/>
+                <Ranklist_frequent_words/>
             </Col>
 
         </Row>
         <Row>
             <Col >
-                <span>歌手毕业院校分析</span>
-                <Edu/>
+                <span className="wxd">说唱歌曲榜词性分析</span>
+                <br/><br/>
+                <Scbd/>
             </Col>
 
         </Row>
-        <Row>
-            <Col >
-                <span>歌手职业分析</span>
-                <Job/>
-            </Col>
 
-        </Row>
-        <Row>
-            <Col >
-                <span>歌手国籍分析</span>
-                <Country/>
-            </Col>
-
-        </Row>
     </div>
   )
 }

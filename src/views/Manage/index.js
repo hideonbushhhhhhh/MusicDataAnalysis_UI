@@ -16,7 +16,7 @@ function Manage (props) {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed} style={{ flex: ' 0 0 256px' }}>
-        <div className="logo">ranck admin</div>
+        <div className="logo">java真高级</div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[props.location.pathname]}>
           {
             menuConfig.map(menu =>

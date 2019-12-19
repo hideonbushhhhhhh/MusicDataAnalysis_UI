@@ -13,6 +13,7 @@ function Bar () {
     const dv1 = ds.createView().source(data);
     dv1.transform({
       type: 'map',
+
       callback: function callback(row) {
         if (typeof (row.count) === 'string') {
           row.count = row.count.replace(',', '');
@@ -30,12 +31,14 @@ function Bar () {
       fields: [ 'Year', 'Count' ],
       bandwidth: 0.1,
       as: [ 'year', 'count' ]
+
     });
     const chart = new G2.Chart({
       container: ReactDOM.findDOMNode(ref.current),
       forceFit: true,
-      width:1000,
+      width: 1000,
       height: 500,
+
       padding: [ 20, 20, 50, 50 ]
     });
     chart.tooltip({

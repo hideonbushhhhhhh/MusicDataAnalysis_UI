@@ -2,18 +2,22 @@ import { Chart, Tooltip, Axis, Legend, Pie, Coord } from 'viser-react';
 import * as React from 'react';
 const DataSet = require('@antv/data-set');
 
-const sourceData = [
-    { item: '中国', count: 2329 },
-    { item: '美国', count: 43 },
-    { item: '马来西亚', count: 35 },
-    { item: '加拿大', count: 28 },
-    { item: '新加坡', count: 26 },
-    { item: '日本', count: 7 },
-    { item: '韩国', count: 6 },
-    { item: '澳大利亚', count: 5 },
-    { item: '其他国家', count: 22 }
-];
-
+const sourceData = [{ item: '华语男歌手', count: 2428 },
+    { item: '华语女歌手', count: 2265 },
+    { item: '华语组合/乐队', count: 2279 },
+{ item: '欧美男歌手', count: 2700 },
+{ item: '欧美女歌手', count: 2621 },
+{ item: '欧美组合/乐队', count: 2700 },
+{ item: '日本男歌手', count: 2417 },
+{ item: '日本女歌手', count: 2257 },
+{ item: '日本组合/乐队', count: 2643 },
+{ item: '韩国男歌手', count: 2636 },
+{ item: '韩国女歌手', count: 2103 },
+{ item:'韩国组合/乐队', count: 2505 },
+{ item: '其他男歌手', count: 2355 },
+{ item: '其他女歌手', count: 1519 },
+{ item: '其他组合/乐队', count: 1774 },
+{ item: '入驻歌手', count: 240 },]
 const scale = [{
     dataKey: 'percent',
     min: 0,

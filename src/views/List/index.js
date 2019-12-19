@@ -73,7 +73,7 @@ function List (){
                 },
             });
         }
-        var url='http://localhost:8080'
+        var url='http://10.66.3.7:8080'
         if(stat.option==='artist'){
             url=url+'/getArtistNode'
         }
@@ -82,6 +82,12 @@ function List (){
         }
         else if(stat.option==='album'){
             url=url+'/getAlbumNode'
+        }
+        else if (stat.option==='similar'){
+            url=url+'/getSimilar'
+        }
+        else if(stat.option==='word'){
+            url=url+'/getKeyWordData'
         }
         console.log(url)
 
@@ -143,7 +149,7 @@ function List (){
         acs.nodes=[];
     }
     function updateNodes(model){
-        var url='http://localhost:8080'
+        var url='http://10.66.3.7:8080'
         if (model.class===2){
             url=url+'/dbclickAlbum'
         }
@@ -191,9 +197,11 @@ function List (){
         return (
             <div>
                 <Select defaultValue="artist" style={{ width: 120 }} onChange={onSelect}>
-                    <Option value="song">song</Option>
-                    <Option value="album">album</Option>
-                    <Option value="artist">artist</Option>
+                    <Option value="song">歌曲查询</Option>
+                    <Option value="album">专辑查询</Option>
+                    <Option value="artist">歌手查询</Option>
+                    <Option value="similar">歌曲相似度推荐</Option>
+                    <Option value="word">关键词</Option>
                     <Option value="other">other</Option>
                 </Select>
                 <Input  type="text" onKeyPress={onChange} defaultValue={stat.name}/>

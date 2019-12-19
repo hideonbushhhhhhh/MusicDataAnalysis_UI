@@ -3,61 +3,51 @@ import Manage from '../views/Manage/index';
 import User from '../views/User';
 import Detail from '../views/User/detail';
 import List from '../views/List';
-import Hygs from '../views/Wordscloud/hygs/index'
+import Hygs from '../views/Wordscloud/subpage'
 import Dashboard from '../views/Dashboard';
 import WordCloud from '../views/Wordscloud/index'
 import WorldGeo from  '../views/worldgeo/index'
+import Singers from '../views/Singers'
+import Ranklists from '../views/Ranklists'
 import EDU from '../views/Dashboard/subpage/edu'
+import MostT from "../views/MostT";
 const menuConfig = [
-  {
-    path: '/manage/user',
-    component: User,
-    title: '用户模块',
-    icon: 'user',
-    routes: [{
-      path: '/manage/user/:id',
-      component: Detail,
-    }]
-  },
-  {
-    path: '/manage/wordscloud',
-    component: WordCloud,
-    title: '词云',
-    icon: 'dashboard',
-    children:[
-      {
-        name: '华语歌手歌词词云',
-        path: '/manage/wordscloud',
-        component:WordCloud
-      },{
-      name:'话题热度榜'
-      }
 
 
-    ]
-  },
   {
     path: '/manage/hygs',
-    component: Hygs,
-    title: '华语歌手歌词统计',
+    component: WordCloud,
+    title: '词云展示',
     icon: 'dashboard',
   },
   {
     path: '/manage/worldgeo',
     component: WorldGeo,
-    title: '歌手地区统计',
+    title: '歌手地区分析',
     icon: 'dashboard',
   },
   {
     path: '/manage/dashboard',
     component: Dashboard,
-    title: '统计模块',
+    title: '歌曲分析模块',
+    icon: 'dashboard',
+  },
+  {
+    path: '/manage/Singers',
+    component: Singers,
+    title: '歌手分析模块',
+    icon: 'dashboard',
+  },
+  {
+    path: '/manage/mostt',
+    component: MostT,
+    title: '各类之最',
     icon: 'dashboard',
   },
   {
     path: '/manage/list',
     component: List,
-    title: '列表页',
+    title: '搜索页',
     icon: 'ordered-list',
   }
 ]

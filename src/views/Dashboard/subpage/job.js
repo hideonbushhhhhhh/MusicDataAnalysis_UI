@@ -1,57 +1,83 @@
-import { Chart, Tooltip, Axis, Legend, Pie, Coord } from 'viser-react';
+import { Chart, Tooltip, Axis, Box, Legend, Pyramid, Coord, Guide } from 'viser-react';
 import * as React from 'react';
 const DataSet = require('@antv/data-set');
 
 const sourceData = [
-    { item: '1份职业', count: 1622 },
-    { item: '2份职业', count: 535 },
-    { item: '3份职业', count: 205 },
-    { item: '4份职业', count: 50 },
-    { item: '5份职业', count: 13 },
-    { item: '6份职业', count: 3 },
-    { item: '7份职业', count: 5 },
-    { item: '8份职业', count: 1 }
+    { action: '1份职业', pv: 1622 },
+    { action: '2份职业', pv: 535 },
+    { action: '3份职业', pv: 205 },
+    { action: '4份职业及以上', pv: 72 }
 ];
-
-const scale = [{
-    dataKey: 'percent',
-    min: 0,
-    formatter: '.0%',
-}];
 
 const dv = new DataSet.View().source(sourceData);
 dv.transform({
     type: 'percent',
-    field: 'count',
-    dimension: 'item',
+    field: 'pv',
+    dimension: 'action',
     as: 'percent'
 });
 const data = dv.rows;
 
+const scale = {
+    dataKey: 'percent',
+    nice: false,
+};
+
+const tooltipOpts = {
+    showTitle: false,
+    itemTpl: '<li data-index={index} style="margin-bottom:4px;">'
+        + '<span style="background-color:{color};" class="g2-tooltip-marker"></span>'
+        + '{name}<br/>'
+        + '<span style="padding-left: 16px">浏览人数：{pv}</span><br/>'
+        + '<span style="padding-left: 16px">占比：{percent}</span><br/>'
+        + '<[表情]>'
+};
+
+const funnelOpts = {
+    position: 'action*percent',
+    color: ['action', ['#0050B3', '#1890FF', '#40A9FF', '#69C0FF', '#BAE7FF']],
+    label: ['action*pv', (action: any, pv: any) => {
+        return action + ' ' + pv;
+    }, {
+        offset: 35,
+        labelLine: {
+            lineWidth: 1,
+            stroke: 'rgba(0, 0, 0, 0.15)',
+        }
+    }],
+    tooltip: ['action*pv*percent', (action: any, pv: any, percent: any) => ({
+        name: action,
+        percent: Math.floor(percent * 100) + '%',
+        pv: pv,
+    })]
+};
+
 export default class App extends React.Component {
     render() {
         return (
-            <Chart forceFit height={400} data={data} scale={scale}>
-                <Tooltip showTitle={false} />
-                <Coord type="theta" />
-                <Axis />
-                <Legend dataKey="item" />
-                <Pie
-                    position="percent"
-                    color="item"
-                    style={{ stroke: '#fff', lineWidth: 1 }}
-                    label={['percent', {
-                        formatter: (val, item) => {
-                            return item.point.item + ': ' + val;
-                        }
-                    }]}
-                />
-            </Chart>
+            <div>
+                <Chart forceFit height={400} padding={[ 20, 120, 95 ]} data={data} scale={scale}>
+                    <Tooltip {...tooltipOpts} />
+                    <Legend />
+                    <Coord type="rect" direction="LT" />
+                    <Pyramid {...funnelOpts} />
+                    {
+                        data.map((obj: any, i: number) => {
+                            const content = parseInt(String(obj.percent * 100)) + '%';
+                            return (<Guide key={`guide-text-${i}`} type="text" top={true} position={{
+                                action: obj.action,
+                                percent: 'median'
+                            }} content={content} style={{
+                                fill: '#fff',
+                                fontSize: '12',
+                                textAlign: 'center',
+                                shadowBlur: 2,
+                                shadowColor: 'rgba(0, 0, 0, .45)'
+                            }}/>);
+                        })
+                    }
+                </Chart>
+            </div>
         );
     }
 }
-
-
-
-
-
