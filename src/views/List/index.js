@@ -73,7 +73,7 @@ function List (){
                 },
             });
         }
-        var url='http://10.66.3.7:8080'
+        var url='http://127.0.0.1:8080'
         if(stat.option==='artist'){
             url=url+'/getArtistNode'
         }
@@ -149,7 +149,7 @@ function List (){
         acs.nodes=[];
     }
     function updateNodes(model){
-        var url='http://10.66.3.7:8080'
+        var url='http://127.0.0.1:8080'
         if (model.class===2){
             url=url+'/dbclickAlbum'
         }
